@@ -1,0 +1,169 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(#191919, #000 250px);
+}
+
+.container-primary {
+    --card-w: 446px;   /* largura MÁXIMA do card */
+
+    display: grid;
+    /* minmax(0, ...) deixa a coluna encolher abaixo do tamanho do card */
+    grid-template-columns: repeat(2, minmax(0, var(--card-w)));
+    justify-content: center;
+    gap: clamp(1rem, 3vw, 2.25rem);
+
+    max-width: 1350px;
+    margin-inline: auto;
+    margin-bottom: clamp(60px, 10vw, 150px);
+    padding: 3rem clamp(0.75rem, 3vw, 1.5rem);
+
+    background: linear-gradient(225deg, #4a4a4a 0%, #2b2b2b 45%, #1a1a1a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.coluna {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 3vw, 2.25rem);
+    min-width: 0;
+}
+
+.coluna-direita {
+    /* meio card: altura = largura × 5/4, metade = largura × 0.625.
+       Em % é calculado sobre a largura da coluna, então acompanha o encolhimento */
+    padding-top: 62.5%;
+}
+
+.buttom-images {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: white;
+    text-decoration: none;
+    font-family: "Barlow Condensed", sans-serif;
+
+    /* permite dimensionar os textos pela largura do card */
+    container-type: inline-size;
+}
+
+.buttom-images img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    transform-origin: center;
+    transition: transform 0.5s ease;
+}
+
+@media (hover: hover) {
+    .buttom-images:hover img {
+        transform: scale(1.05);   /* crescimento leve: 5% */
+    }
+}
+
+.buttom-images:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+}
+
+.buttom-images::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.6) 0%,
+            transparent 35%,
+            transparent 65%,
+            rgba(0, 0, 0, 0.6) 100%);
+    pointer-events: none;   /* o clique continua indo para o link */
+}
+
+/* título e subtítulo no topo da imagem */
+.titulo-subtitulo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;             /* fica acima do degradê */
+    padding: 1.5rem 1rem;
+    text-align: center;
+}
+
+.titulo-subtitulo h2 {
+    margin: 0;
+    font-size: clamp(1.1rem, 6.5cqw, 1.75rem);   /* escala com a largura do card */
+    font-weight: 600;
+    text-transform: uppercase;
+    overflow-wrap: break-word;
+}
+
+.titulo-subtitulo h4 {
+    margin: 0 0 0.25rem;
+    font-size: clamp(0.7rem, 2.6cqw, 0.85rem);
+    font-weight: 400;
+    letter-spacing: 0.1em;
+}
+
+/* "LEARN MORE" na parte de baixo da imagem */
+.saiba-mais {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    font-size: clamp(0.75rem, 2.8cqw, 0.9rem);
+    letter-spacing: 0.15em;
+    white-space: nowrap;
+    border-bottom: 1px solid white;
+}
+
+#titulo-container {
+    max-width: 1350px;       /* mesma largura do .container-primary */
+    margin: clamp(100px, 12vw, 140px) auto 0;
+    padding-inline: 1rem;
+
+    color: white;
+    font-size: clamp(1.75rem, 5vw, 3rem);
+    line-height: 1.1;
+    font-family: "Bugatti Display", ui-sans-serif, system-ui, sans-serif;
+}
+
+#titulo-container h3 {
+    margin: 0;
+    padding-block: 2rem 1.5rem;
+    font-weight: 400;
+}
+
+/* Celular: 1 coluna, sem degrau */
+@media (max-width: 700px) {
+    .container-primary {
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 446px;          /* card não fica gigante em telas médias */
+        margin-inline: 12px;
+        padding-block: 1.5rem;
+    }
+
+    .coluna-direita {
+        padding-top: 0;            /* remove o degrau */
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .buttom-images img {
+        transition: none;
+    }
+    .buttom-images:hover img {
+        transform: none;
+    }
+}

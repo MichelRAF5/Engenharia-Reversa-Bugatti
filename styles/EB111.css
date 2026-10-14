@@ -1,0 +1,143 @@
+.EB111 {
+    position: relative;
+    height: 140vh;
+    overflow: hidden;
+    color: #fff;
+}
+
+.EB111 .videos {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.EB111::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.55));
+    z-index: 1;
+}
+
+.EB111_corpo {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 12vh 1.5rem 0;
+    box-sizing: border-box;
+}
+
+
+.EB111_corpo h1 {
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 400;
+    font-size: clamp(5rem, 14vw, 13rem);
+    line-height: 1;
+    margin: 32vh 0 0;       
+}
+
+
+.EB111_corpo h6 {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 400;
+    font-size: .9rem;
+    letter-spacing: .1em;
+    margin: 1.5rem 0 0;    
+}
+
+
+.EB111_corpo h3 {
+    position: absolute;
+    bottom: 4vh;          
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(40rem, 90vw);
+    margin: 0;
+    padding: 0;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 2.6vw, 2.5rem);
+    line-height: 1.15;
+}
+
+
+
+
+.info_EB111_tabela_corpo {
+    position: absolute;
+    left: 3vw;          
+    bottom: 8vh;
+    z-index: 2;
+    width: min(32rem, 90vw);
+    color: #fff;
+    text-shadow: 0 1px 8px rgba(0,0,0,.6);
+}
+
+
+.info_EB111_palco > div:nth-child(even) .info_EB111_tabela_corpo {
+    left: auto;
+    right: 3vw;
+}
+
+
+.info_EB111 {
+    position: relative;
+    height: 750vh;   
+    background: #000;
+}
+
+
+.info_EB111_palco {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;  
+}
+
+
+.info_EB111_palco > div {
+    position: absolute;
+    inset: 0;
+    height: 100vh;
+    overflow: hidden;  
+}
+
+.info_EB111_palco > div img {
+    position: static;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* escurecimento */
+.info_EB111_palco > div::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.55));
+    pointer-events: none;
+}
+
+
+.info_EB111_tabela_corpo h3 {
+    font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 500;
+    font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+    margin: 0 0 1rem;
+}
+
+.info_EB111_tabela_corpo h6 {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 400;
+    font-size: .85rem;
+    line-height: 1.5;
+    margin: 0;
+}

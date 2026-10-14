@@ -1,0 +1,267 @@
+<!--
+Para colocar este header na página coloque:
+<div id="header-placeholder"></div> após a abertura da tag <body> e antes da tag <main>
+e <script src="./scripts/carregar-componentes.js"></script> antes do fechamento da tag body
+-->
+
+<header class="sobreposto">
+    <!-- Menu suspenso -->
+    <nav class="navegacao">
+        <ul class="cabecalho">
+            <li>
+                <div class="botao-menu" id="botao-abrir-menu">
+                    <a href="#"><img src="./images/menu-logo.png" alt="menu"> MENU</a>
+                </div>
+            </li>
+            <li>
+                <div id="logo">
+                    <a href="Telainicial.html">
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="./images/EB-logo.png">
+                            <img src="./images/BUGATTI LOGO.png" alt="BUGATTI LOGO">
+                        </picture>
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <div class="botao-menu">
+                    <a href="./store.html" target="_blank">STORE <img src="./images/store-logo.png" alt="store"></a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <!-- Menu PopUp ativado pelo <a>Menu</a> -->
+    <div id="overlay-menu" class="overlay-menu">
+        <nav class="menu-popup" aria-label="Menu principal" data-lenis-prevent>
+            <button id="fechar-menu" class="fechar-menu" aria-label="Fechar menu">✕</button>
+            <div class="menu-primary">
+                <div class="menu-general">
+                    <div class="menu-opcoes">
+                        <ul>
+                            <!--Ao usar # ele evita abrir outra pagina ou reabrir a pagina-->
+                            <li id="Titulo-seccao">HYPER SPORT CARS</li>
+                            <li><a href="#" class="abre-submenu" data-alvo="sub-current">Current Models ></a>
+                            </li>
+                            <li><a href="#" class="abre-submenu" data-alvo="sub-contemporary">Contemporany Models ></a>
+                            </li>
+                            <li><a href="#" class="abre-submenu" data-alvo="sub-classic-icons">Classic Icons ></a></li>
+                            <li><a href="#" class="abre-submenu" data-alvo="sub-individualization">Individualization
+                                    ></a></li>
+                        </ul>
+                    </div>
+                    <div class="menu-opcoes">
+                        <ul>
+                            <li id="Titulo-seccao"> LA MARQUE </li>
+                            <li><a href="#" class="abre-submenu" data-alvo="sub-company">Company ></a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Newsroom</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu-opcoes">
+                        <ul>
+                            <li id="Titulo-seccao"> OWNERSHIP </li>
+                            <li><a href="#">Dealer Finder</a></li>
+                            <li><a href="#">Customer Service</a></li>
+                            <li><a href="#">La Maison Pur Sang</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu-opcoes">
+                        <ul>
+                            <li id="Titulo-seccao"> LIFESTYLE </li>
+                            <li><a href="#" class="abre-submenu" data-alvo="sub-collections">Collections ></a></li>
+                            <li><a href="./store.html">BUGATTI Store</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="opcoes-submenu" id="sub-current">
+                    <!-- Feito uma secction para os carros current-->
+                    <!-- Opção sub menu 'Current Models'-->
+                    <section class="submenu-opcoes-cars">
+                        <!-- Cada section possui 1 video ja muted com loop de passar o mouse encima para o video começar -->
+                        <a href="./tourbillon.html">
+                            <video disablepictureinpicture muted loop playsinline preload="metadata"
+                                class="video-opcoes">
+                                <source
+                                    src="https://bugatti.imgix.net/68220e13f5c0fd72764d8617/2025-model-teaser-videos-tourbillon_720.mp4?fm=mp4&w=1920&video-codec=av1&video-bitrate=2m"
+                                    type="video/mp4">
+                            </video>
+                            <div id="nome-carro">
+                                <span> TOURBILLON </span>
+                            </div>
+                        </a>
+                    </section>
+                    <section class="submenu-opcoes-cars">
+                        <a href="#">
+                            <video disablepictureinpicture muted loop playsinline preload="metadata"
+                                class="video-opcoes">
+                                <source
+                                    src="https://bugatti.imgix.net/68220e5df5c0fd72764da4fe/2025-model-teaser-videos-w16mistral_720.mp4?fm=mp4&w=1920&video-codec=av1&video-bitrate=2m"
+                                    type="video/mp4">
+                            </video>
+                            <div id="nome-carro">
+                                <span> W16 MISTRAL </span>
+                            </div>
+                        </a>
+                    </section>
+                    <section class="submenu-opcoes-cars">
+                        <a href="#">
+                            <video disablepictureinpicture muted loop playsinline preload="metadata"
+                                class="video-opcoes">
+                                <source
+                                    src="https://bugatti.imgix.net/68220e7cf5c0fd72764dbe84/2025-model-teaser-videos-bolide_720.mp4?fm=mp4&w=1920&video-codec=av1&video-bitrate=2m"
+                                    type="video/mp4">
+                            </video>
+                            <div id="nome-carro">
+                                <span> BOLIDE </span>
+                            </div>
+                        </a>
+                    </section>
+                </div>
+
+                <!-- Opção sub menu Contemporany Models -->
+                <div class="opcoes-submenu" id="sub-contemporary">
+                    <section class="submenu-opcoes-cars">
+                        <a href="#">
+                            <img id="contemporany"
+                                src="https://bugatti.imgix.net/6766f124625ddcf42f49feb3/01-BUGATTI_Chiron-Super-Sport_ext.jpg?auto=format,compress&cs=srgb&sharp=10&w=688&dpr=0.8955223880597015"
+                                alt="chiron">
+                            <div id="nome-carro">
+                                <span> CHIRON </span>
+                            </div>
+                        </a>
+                    </section>
+                    <section class="submenu-opcoes-cars">
+                        <a href="#">
+                            <img id="contemporany"
+                                src="https://bugatti.imgix.net/677ab166531541bbada910a0/lavoiturenoire-og.jpg?auto=format,compress&cs=srgb&sharp=10&w=688&dpr=0.8955223880597015"
+                                alt="chiron">
+                            <div id="nome-carro">
+                                <span> LA VOITURE NOIRE </span>
+                            </div>
+                        </a>
+                    </section>
+                    <section class="submenu-opcoes-cars">
+                        <a href="#">
+                            <img id="contemporany"
+                                src="https://bugatti.imgix.net/673387e8ed9d56f31c5f01c5/bugatti-divo-card.jpg?auto=format,compress&cs=srgb&sharp=10&w=688&dpr=0.8955223880597015"
+                                alt="chiron">
+                            <div id="nome-carro">
+                                <span> DIVO </span>
+                            </div>
+                        </a>
+                    </section>
+                    <section class="submenu-opcoes-cars">
+                        <a href="#">
+                            <img id="contemporany"
+                                src="https://bugatti.imgix.net/6733881f96f2c0c4a773f5b2/bugatti-centodieci-card.jpg?auto=format,compress&cs=srgb&sharp=10&w=688&dpr=0.8955223880597015"
+                                alt="chiron">
+                            <div id="nome-carro">
+                                <span> CENTODIECI </span>
+                            </div>
+                        </a>
+                    </section>
+                </div>
+
+                <!-- Opção sub menu Classic Icons -->
+                <div class="opcoes-submenu" id="sub-classic-icons">
+                    <section class="submenu-opcoes-cars">
+                        <a href="./tela_EB111.html">
+                            <img id="contemporany"
+                                src="https://bugatti.imgix.net/677d2087a6687afce7a73d70/eb110-og.jpg?auto=format,compress&cs=srgb&sharp=10&w=594&dpr=1"
+                                alt="eb110">
+                            <div id="nome-carro">
+                                <span> EB110 </span>
+                            </div>
+                        </a>
+                    </section>
+                    <section class="submenu-opcoes-cars">
+                        <a href="./tela_VEYRON.html">
+                            <img id="contemporany"
+                                src="https://bugatti.imgix.net/67bc723cb7e65af75d316c43/bugatti-veyron-grand-sport-vitesse-03.jpeg?auto=format,compress&cs=srgb&sharp=10&w=594&dpr=1"
+                                alt="veyron">
+                            <div id="nome-carro">
+                                <span> VEYRON </span>
+                            </div>
+                        </a>
+                    </section>
+                </div>
+
+                <!-- Opção sub menu Individualization -->
+                <div class="opcoes-submenu" id="sub-individualization">
+                    <section class="submenu-opcoes-cars">
+                        <a href="#">
+                            <video disablepictureinpicture muted loop playsinline preload="metadata"
+                                class="video-opcoes">
+                                <source src="https://bugatti.imgix.net/689485a29fe9b36d36421ccf/250807-solitaire-brouillard-video-menu.mp4?fm=mp4&w=1920&video-codec=av1&video-bitrate=2m
+" type="video/mp4">
+                            </video>
+                            <div id="nome-carro">
+                                <span> PROGRAMME SOLITARIE </span>
+                            </div>
+                        </a>
+                    </section>
+                    <section class="submenu-opcoes-cars">
+                        <a href="#">
+                            <video disablepictureinpicture muted loop playsinline preload="metadata"
+                                class="video-opcoes">
+                                <source
+                                    src="https://bugatti.imgix.net/675eda89a55eb753a13be226/sur-mesure-hero-fullhd-v2-1.mp4?fm=mp4&w=1920&video-codec=av1&video-bitrate=2m"
+                                    type="video/mp4">
+                            </video>
+                            <div id="nome-carro">
+                                <span> SUR MESURE </span>
+                            </div>
+                        </a>
+                    </section>
+                </div>
+
+                <!-- Opção sub menu Company -->
+                <div class="opcoes-submenu" id="sub-company">
+                    <div class="link-submenu">
+                        <a href="#">Discover BUGATTI</a>
+                    </div>
+                    <div class="link-submenu">
+                        <a href="#">Historic Models</a>
+                    </div>
+                    <div class="link-submenu">
+                        <a href="#">Racing Legends</a>
+                    </div>
+                    <div class="link-submenu">
+                        <a href="#">Les Patrons</a>
+                    </div>
+                </div>
+
+                <!-- Opção sub menu Collections -->
+                <div class="opcoes-submenu" id="sub-collections">
+                    <div class="link-submenu">
+                        <a href="./Art-of-Living.html">Art of Living</a>
+                    </div>
+                    <div class="link-submenu">
+                        <a href="./Apparel-&-Accessories.html">Apparel & Accessories</a>
+                    </div>
+                    <div class="link-submenu">
+                        <a href="./Watches-&-Jewellery.html">Watches & Jewellery</a>
+                    </div>
+                    <div class="link-submenu">
+                        <a href="./Collectible-&-Model-Cars.html">Collectibles & Model Cars</a>
+                    </div>
+                </div>
+
+                <!--Rodapé do menu popup-->
+                <div id="rodape-popup">
+                    <div id="div-rodape-linguagens">
+                        <a href="#">EN</a>
+                        <a href="#">FR</a>
+                    </div>
+
+                    <div id="div-rodape-noticias-loja">
+                        <a href="#">NEWSROOM</a>
+                        <a href="./store.html">STORE</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+</header>

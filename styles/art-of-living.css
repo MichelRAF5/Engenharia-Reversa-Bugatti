@@ -1,0 +1,233 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(#191919, #000 250px);
+}
+
+/* Container que porta as imagens em grid */
+#container {
+    max-width: 1300px;
+    margin-inline: auto;
+}
+
+/* Título da página: mesma faixa horizontal do grid de imagens */
+#titulo-art {
+    max-width: 1300px;                        /* mesma largura do #container */
+    margin: 0 auto;                           /* centraliza igual ao container */
+    padding-top: 55px;
+    padding-inline: clamp(12px, 4vw, 48px);   /* mesmo recuo lateral do #images-grid-primary */
+
+    color: white;
+    font-size: clamp(24px, 3vw, 36px);
+    line-height: 1.1;
+    overflow-wrap: break-word;
+}
+
+/* Grid principal: 2 colunas */
+#images-grid-primary {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+
+    column-gap: clamp(16px, 4vw, 55px);
+    padding: clamp(20px, 3.5vw, 45px) clamp(16px, 5vw, 65px);
+
+    height: auto;
+    margin-inline: clamp(12px, 4vw, 48px);
+    margin-bottom: clamp(40px, 8vw, 100px);
+
+    background-color: #000;
+    border: 0.025rem solid white;
+    border-radius: 4px;
+}
+
+/* Colunas */
+.coluna,
+.coluna-direita {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: clamp(20px, 3vw, 35px);
+
+    min-width: 0;
+    padding: 0;
+}
+
+/* Degrau da coluna direita (metade da altura de um card 408 × 511) */
+.coluna-direita {
+    padding-top: 62.62%;
+}
+
+/* Imagens */
+.imagens-grid-esquerda,
+.imagens-grid-direita {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Link do card */
+.buttom-images {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-width: 0;
+
+    /* Permite dimensionar os textos pela largura do card */
+    container-type: inline-size;
+
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Formatação geral das imagens */
+.coluna img,
+.coluna-direita img,
+.buttom-images img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 408 / 511;
+    object-fit: cover;
+}
+
+/* Título e subtítulo dentro da imagem */
+#titulo-subtitulo,
+.titulo-subtitulo {
+    position: absolute;
+    z-index: 1;
+    top: 5.5%;
+    left: 4%;
+    right: 4%;
+
+    display: flex;
+    flex-direction: column;
+    gap: clamp(6px, 2.9cqw, 12px);
+
+    color: white;
+    text-align: center;
+    overflow-wrap: anywhere;
+    text-shadow: 0 1px 6px rgb(0 0 0 / 65%);
+}
+
+/* Subtítulo */
+#titulo-subtitulo h4,
+.titulo-subtitulo h4 {
+    margin: 0;
+    font-size: clamp(10px, 2.2cqw, 11px);
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+}
+
+/* Título */
+#titulo-subtitulo h2,
+.titulo-subtitulo h2 {
+    margin: 0;
+    font-size: clamp(16px, 6.85cqw, 28px);
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+/* "Learn more" na parte de baixo da imagem */
+.saiba-mais {
+    position: absolute;
+    bottom: 5.5%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    max-width: 90%;
+    font-size: clamp(10px, 2.45cqw, 11px);
+    letter-spacing: 0.1em;
+    text-align: center;
+    overflow-wrap: break-word;
+
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-shadow: 0 1px 6px black;
+}
+
+/* Foco por teclado */
+.buttom-images:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+}
+
+/* Zoom e blur */
+.buttom-images img {
+    transform-origin: center;
+    filter: blur(var(--scroll-blur, 0px));
+    transition:
+        transform 0.5s ease,
+        filter 0.2s ease;
+}
+
+@media (hover: hover) {
+    .buttom-images:hover img {
+        transform: scale(1.08);
+    }
+}
+
+.buttom-images:focus-visible img {
+    transform: scale(1.08);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    #images-grid-primary {
+        padding: 24px 20px;
+        column-gap: 16px;
+    }
+
+    .coluna,
+    .coluna-direita {
+        gap: 16px;
+    }
+
+    #titulo-art {
+        padding-top: 40px;
+    }
+}
+
+/* Celular: 1 coluna, sem degrau */
+@media (max-width: 600px) {
+    #images-grid-primary {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 24px;
+        padding: 16px;
+        margin-inline: 12px;
+    }
+
+    .coluna,
+    .coluna-direita {
+        padding: 0;
+        gap: 24px;
+    }
+
+    .coluna-direita {
+        padding-top: 0;   /* remove o degrau de forma explícita */
+    }
+
+    #titulo-art {
+        padding-top: 90px;     /* espaço para o header absoluto */
+        padding-inline: 12px;  /* igual ao margin-inline do grid no celular */
+        font-size: 24px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .buttom-images img {
+        transition: none;
+        transform: none;
+        filter: none;
+    }
+}

@@ -1,0 +1,122 @@
+.footer {
+    background: var(--panel);
+    color: var(--text);
+    padding: clamp(40px, 5vw, 70px) 0 40px;
+}
+
+.footer>* {
+    width: min(100% - 2 * var(--pad), 1420px);
+    margin-inline: auto;
+}
+
+.footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: var(--muted);
+}
+
+
+.footer .cols {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-bottom: 56px;
+}
+
+.footer .cols h2 {
+    padding: 0;
+    margin: 0 0 14px;
+    text-align: left;
+    font-family: var(--mono);
+    font-size: .78rem;
+    font-weight: 400;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    line-height: 1.4;
+}
+
+.footer .cols li {
+    margin-bottom: 8px;
+    font-size: .95rem;
+    line-height: 1.3;
+}
+
+.footer .caps {
+    text-transform: uppercase;
+}
+
+
+.footer .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer .copy,
+.footer .lang h3 {
+    margin: 0 0 14px;
+    font-size: .95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.footer .legal,
+.footer .lang ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 36px;
+    font-size: .9rem;
+}
+
+.footer .lang a[aria-current="true"] {
+    color: var(--muted);
+}
+
+
+.footer .social {
+    display: flex;
+    gap: 14px;
+}
+
+.footer .social svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--text);
+    display: block;
+}
+
+.marca_gigante {
+    background: #0a0a0a;
+    overflow: hidden;
+    padding-top: 40px;
+}
+
+.marca_gigante span {
+    display: block;
+    text-align: center;
+    font-weight: 600;
+    font-size: 28vw;
+    line-height: .8;
+    letter-spacing: .02em;
+    white-space: nowrap;
+    user-select: none;
+
+    color: transparent;
+    background:
+        radial-gradient(circle 300px at var(--x, -999px) var(--y, -999px),
+            rgba(255, 255, 255, .55), transparent 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}

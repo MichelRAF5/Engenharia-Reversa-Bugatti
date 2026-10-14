@@ -1,0 +1,409 @@
+html { 
+  scroll-behavior: smooth; 
+}
+
+h1, h2, h6 { 
+  text-transform: uppercase; 
+  font-weight: 500; margin: 0; 
+}
+
+h1, h2 { 
+  line-height: 1.05; 
+  letter-spacing: .02em;
+  padding-left: 90px; 
+}
+
+
+.maison h1, .lifestyle > h2, .carros_cabeca h2, .live h1 {
+    font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+}
+
+h6, .link {
+    font-family: var(--mono);
+    font-weight: 400;
+    font-size: clamp(.68rem, .9vw, .8rem);
+    letter-spacing: .1em;
+    line-height: 1.6;
+}
+
+.link {
+    display: inline-block;
+    color: inherit;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding-bottom: 3px;
+    border-bottom: 1px solid currentColor;
+    transition: opacity .2s;
+}
+.link:hover { 
+  opacity: .6; 
+}
+
+
+.destrier_corpo .link,
+.feature_corpo .link,
+.mensure_corpo .link {
+    padding: 12px 24px;
+    border: 1px solid rgba(255, 255, 255, .6);
+    border-radius: 999px;
+}
+
+.logo{
+  filter: invert(1);
+}
+
+.videos {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+
+.destrier{
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+
+.feature, .mensure {
+    position: relative;
+    min-height: 80svh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 90%;
+    margin: 0 auto 40px;   
+    border-radius: 12px;
+}
+.feature .videos, .mensure .videos { 
+    transition: transform .8s ease; 
+}
+.feature:hover .videos, .mensure:hover .videos { 
+    transform: scale(1.04); 
+}
+
+.cartao { 
+  display: grid; 
+  gap: 18px; 
+  align-content: start; 
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.cartao img:first-of-type {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform .8s ease;
+}
+
+.cartao:hover img:first-of-type { 
+    transform: scale(1.04); 
+}
+
+
+
+.destrier > video, .feature > video, .mensure > video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    justify-content: center;
+}
+
+.destrier::after, .feature::after, .mensure::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, .3);
+}
+
+.destrier_corpo, .feature_corpo, .mensure_corpo {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    justify-items: center;
+    gap: 22px;
+    padding: 0 var(--pad);
+    max-width: 900px;
+}
+
+.destrier_corpo img { 
+  width: clamp(4000px, 50vw, 700px); 
+  height: auto; 
+}
+
+
+.feature_corpo img { 
+  width: clamp(220px, 34vw, 480px); 
+  height: auto; 
+  filter: invert(1);
+}
+
+
+.mensure_corpo h1 {
+    font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+    text-align: center;
+    padding-left: 0;
+}
+
+
+
+.mensure_corpo h6 {
+    max-width: 520px;
+    text-align: center;
+}
+
+
+.maison, .lifestyle { 
+  padding: clamp(60px, 8vw, 120px) var(--pad); 
+}
+
+
+.maison h1, .lifestyle > h2 { 
+  margin-bottom: clamp(28px, 4vw, 56px); 
+}
+
+.maison_tabela { 
+  display: grid; grid-template-columns: repeat(3, 1fr); 
+  gap: 24px; 
+}
+
+.lifestyle_tabela { 
+  display: grid; grid-template-columns: repeat(2, 1fr); 
+  gap: 24px; 
+}
+
+
+.cartao img:last-of-type {
+    transition: transform .8s ease;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.cartao img:last-of-type:hover {
+    transform: scale(1.04);
+    filter: brightness(1.12);
+    
+}
+
+.cartao { 
+  display: grid; 
+  gap: 18px; 
+  align-content: start; 
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+
+.cartao_texto { 
+  display: grid; 
+  gap: 12px; justify-items: start; 
+}
+
+.cartao_texto h2 { 
+  font-size: clamp(1.5rem, 2.4vw, 2.2rem); 
+  padding-left: 0;
+}
+
+.carros_cabeca{
+  padding: 50px;
+}
+
+
+.carros_corpo {
+    width: fit-content;
+    width: min(100%, 1000px);
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 495px));
+    justify-content: center;
+    gap: 14px;
+    padding: clamp(16px, 4vw, 40px);
+    max-height: 100%;
+    background: var(--panel);
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--muted) transparent;
+}
+
+.carro {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 6px;
+    scroll-snap-align: start;
+    isolation: isolate;
+}
+
+.carro::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(0,0,0,.45), transparent 45%,transparent 75%, rgba(0,0,0,.5));
+}
+
+.carro_legenda {
+    position: absolute;
+    z-index: 2;
+    top: 22px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: var(--text);
+}
+
+.carro_link {
+    position: absolute;
+    z-index: 2;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--text);
+    white-space: nowrap;
+}
+
+.carro img:last-of-type {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .8s ease;
+}
+.carro:hover img:last-of-type { 
+    transform: scale(1.04); 
+}
+
+.carro img:first-of-type {
+    position: absolute;
+    z-index: 2;
+    top: clamp(44px, 12%, 72px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 78%;
+    height: auto;
+}
+
+.live_tabela a { 
+    display: block; overflow: hidden; border-radius: 8px; 
+}
+
+.live {
+    max-width: 1100px;     
+    margin-inline: auto;    
+    padding: clamp(60px, 8vw, 120px) var(--pad);
+}
+.live h1 { 
+  margin-bottom: 50px;
+  padding-left: 0; 
+}
+
+.live_tabela {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: clamp(32px, 5vw, 60px);
+}
+
+
+.live_item {
+    display: block;
+    overflow: hidden;
+    border-radius: 8px;
+    isolation: isolate;
+}
+
+.live_tabela img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    transition: transform .8s ease;
+}
+
+.live_item:hover img { 
+    transform: scale(1.04); 
+}
+
+.wordmaek{
+  filter: invert(1);
+
+}
+
+.destrier_corpo .butao{
+    display: block;
+    margin: 0 auto;
+    font: inherit;
+    font-family: var(--mono);
+    font-size: .6rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text);
+    background: transparent;
+    border: 1px solid var(--text);
+    border-radius: 999px;
+    padding: 14px 36px;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+
+}
+.butao {
+    display: block;
+    margin: 0 auto;
+    font: inherit;
+    font-family: var(--mono);
+    font-size: .8rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text);
+    background: transparent;
+    border: 1px solid var(--text);
+    border-radius: 999px;
+    padding: 14px 36px;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+}
+
+.butao:hover { 
+  background: var(--text); 
+  color: var(--ink); 
+}
+
+@media (max-width: 900px) {
+    .maison_tabela, .lifestyle_tabela { 
+        grid-template-columns: 1fr; 
+    }
+    .live_tabela { 
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    .carro { 
+        flex-basis: 85%; 
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { 
+        scroll-behavior: auto; 
+    }
+    .cartao img, .carro img:last-of-type { 
+        transition: none; 
+    }
+}

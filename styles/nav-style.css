@@ -1,0 +1,351 @@
+/*Modificando o header para deixa-lo fixo*/
+header {
+    position: relative;
+    z-index: 10;
+}
+/*Class do header que está fixando e manipulando ele*/
+header.sobreposto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.video {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    object-fit: cover;
+}
+
+/* Estilização do menu suspenso */
+.navegacao {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 18px;
+}
+
+.cabecalho {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0vw 4vw 0vw 3vw;
+    margin: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 104px;
+}
+
+#logo img {
+    width: 155px;
+}
+
+@media (max-width: 768px) {
+    #logo img {
+        width: 50px;
+    }
+}
+
+.botao-menu a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7vw;
+    padding: 0.3vw;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.botao-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.botao-menu img {
+    width: 24px;
+}
+
+/* Estilização do PopUp menu (ativado pelo menu suspenso) */
+.overlay-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    /*Não mexer em nada a cima*/
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+.overlay-menu.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-popup {
+    position: relative;
+    font-family: "Barlow Condensed", sans-serif;
+    background-color: white;
+    color: black;
+    padding: 48px 24px 24px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    min-width: 280px;
+    min-height: 0;
+    max-width: 100%;
+    overflow-y: auto;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+    overscroll-behavior: contain;
+}
+
+/* Escondendo o scroll no menu popup */
+/* Para navegadores baseados em WebKit (Chrome, Safari e Edge) */
+.menu-popup::-webkit-scrollbar {
+    display: none;
+}
+
+/* Para o Firefox */
+.menu-popup {
+    scrollbar-width: none;
+}
+
+.overlay-menu.ativo .menu-popup {
+    transform: scale(1);
+}
+
+.menu-popup ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+}
+
+.menu-popup a {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.5;
+}
+
+.menu-popup a:hover,
+.menu-popup a.ativo {
+    color: black;
+    opacity: 1;
+}
+
+#Titulo-seccao {
+    text-align: left;
+    font-size: 14px;
+}
+
+.fechar-menu {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    background: none;
+    border: none;
+    color: #6d6d6d;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.fechar-menu:hover {
+    color: black;
+}
+
+.menu-general {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2.25rem;
+    margin-top: 35px;
+}
+
+.menu-opcoes a {
+    align-content: left;
+}
+
+.menu-primary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/*O painel começa na coluna 2 e vai até o fim, ocupando 2 das 3 colunas*/
+.opcoes-submenu {
+    grid-column: 2 / -1;
+    grid-row: 1;
+    /* todos os painéis na mesma célula */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 35px;
+    max-width: 600px;
+    max-height: 700px;
+}
+
+/*Modificando a classe submenu opcoes para manter a formatação para todas*/
+.submenu-opcoes-cars {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/*Tamanho/alteração dos videos*/
+.video-opcoes {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/*Modificando a escrita dentro da imagem/video */
+.submenu-opcoes-cars span {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    color: white;
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+/*Escondendo os menus para o menu ativo ficar exposto, portanto o menu desejavel fica ativo e os proximos ficam escondidos*/
+.opcoes-submenu {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/*Modificando o display do menu em ativação*/
+.opcoes-submenu.ativo {
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/*Formatação da imagem */
+.submenu-opcoes-cars img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+/* Retirando a animação/decoração do link vindo de menu-pop a*/
+.submenu-opcoes-cars a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+}
+
+/*Transição da imagem para aumentar lentamente no hover*/
+.submenu-opcoes-cars a:hover img {
+    transform: scale(1.1);
+}
+
+
+/*Animação dos itens do menu*/
+.opcoes-submenu.ativo .submenu-opcoes-cars,
+.opcoes-submenu.ativo .link-submenu {
+    animation: subir 0.9s ease both;
+    animation-delay: calc(var(--i) * 0.15s);
+    /* cada card espera um pouco mais */
+}
+
+/*Este bloco de codigo foi todo Vibecodado para baixo*/
+@keyframes subir {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+        /* começa 40px abaixo */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* respeita quem desativa animações no sistema */
+@media (prefers-reduced-motion: reduce) {
+
+    .opcoes-submenu.ativo .submenu-opcoes-cars,
+    .opcoes-submenu.ativo .link-submenu {
+        animation: none;
+    }
+}
+
+/* Estilização do redapé do menu popup */
+#rodape-popup {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+    margin-top: 72px;
+    box-sizing: border-box;
+}
+
+#div-rodape-linguagens {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    align-items: flex-start;
+}
+
+#div-rodape-noticias-loja {
+    grid-column: 2 / -1;
+    grid-row: 1;
+    display: flex;
+    align-items: flex-start;
+}
+
+#div-rodape-linguagens a,
+#div-rodape-noticias-loja a {
+    font-size: 13px;
+    font-family: "Barlow Condensed", sans-serif;
+    color: black;
+    opacity: 1;
+    padding: 6px 4px;
+}
+
+/* Estilização dos submenus que possuem apenas links sem fotos ou videos */
+.link-submenu a {
+    font-size: 32px;
+    color: #3F3F3F;
+    opacity: 1;
+}
+
+.link-submenu a:hover {
+    color: black;
+}
+
+#sub-company {
+    gap: 20px;
+}
+
+:root {
+    --altura-menu: 104px;
+}
+
+.overlay-menu:not(.ativo) .opcoes-submenu,
+.overlay-menu:not(.ativo) .opcoes-submenu.ativo {
+    visibility: hidden;
+    pointer-events: none;
+}

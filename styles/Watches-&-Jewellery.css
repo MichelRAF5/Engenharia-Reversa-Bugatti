@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.container {
+    --card-w: 407px;   /* largura MÁXIMA do card */
+    --espaco: 28px;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, var(--card-w)));
+    justify-content: center;
+    gap: var(--espaco);
+
+    background: linear-gradient(#191919, #000 250px);
+    border: 2px solid rgb(37, 36, 36);
+    margin: 0 40px 95px;
+}
+
+.coluna {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+}
+
+.coluna-direita {
+    padding-top: 62.5%;   
+}
+
+#portador-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-block: 30px 100px;
+}
+
+#portador-filho {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+#img-wallet img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    mix-blend-mode: lighten;
+    transform-origin: center;
+    transition: transform 0.5s ease;
+}
+
+#portador-filho:hover #img-wallet img {
+    transform: scale(1.05);
+}
+
+#titulo-subtitulo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    color: white;
+}
+
+#titulo-subtitulo h2,
+#titulo-subtitulo h4 {
+    margin: 0;
+}
+
+#titulo-subtitulo h2 {
+    font-size: clamp(1.1rem, 4vw, 30px);   /* A fonta vai encolher junto com a tela*/
+}
+
+#lear-more-buttom {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    text-align: center;
+    color: white;
+}
+
+#lear-more-buttom span {
+    border-bottom: 1px solid white;
+}
+
+#titulo-container {
+    display: flex;
+    flex-direction: column;
+    font-family: "Bugatti Display", ui-sans-serif, system-ui, sans-serif;
+    font-size: 25px;
+    line-height: 1;
+    margin: 100px 40px 0 3rem;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    .container {
+        margin-inline: 20px;
+        gap: 16px;
+    }
+
+    #portador-img {
+        padding-block: 20px 60px;
+    }
+
+    #titulo-container {
+        margin-left: 20px;
+    }
+}
+
+/* Celular: 1 coluna, sem escalonado */
+@media (max-width: 600px) {
+    .container {
+        grid-template-columns: minmax(0, 1fr);
+        margin-inline: 12px;
+        gap: 0;
+    }
+
+    .coluna-direita {
+        padding-top: 0;   /* sem o degrau */
+    }
+
+    #portador-img {
+        padding-block: 12px 12px;
+    }
+
+    #titulo-container {
+        margin: 80px 12px 0;
+        font-size: 20px;
+    }
+}
